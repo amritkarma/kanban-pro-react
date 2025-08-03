@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+
+@layer base {
+  html,
+  body,
+  .dark {
+    @apply transition-colors duration-300 ease-in-out;
+  }
+
+  button,
+  a,
+  input,
+  textarea,
+  select,
+  label,
+  summary,
+  details,
+  li,
+  nav,
+  header,
+  footer,
+  section,
+  article,
+  aside,
+  /* svg, */
+  [role="button"],
+  [role="link"],
+  [class*="bg-"],
+  [class*="text-"],
+  [class*="border-"],
+  [class*="from-"],
+  [class*="to-"],
+  [class*="via-"],
+  [class*="hover:bg-"],
+  [class*="hover:text-"],
+  [class*="hover:border-"],
+  [class*="group-hover:"],
+  [class*="focus:"],
+  [class*="active:"],
+  [class*="ring-"],
+  [class*="outline-"],
+  [class*="decoration-"],
+  [class*="shadow-"] {
+    @apply transition-colors duration-200 ease-in-out;
+  }
+}
+
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  .root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+
+.scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: var(--foreground) transparent;
+}
+
+.scrollbar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+  background-color: var(--foreground);
+  border-radius: 9999px;
+}
+
+.scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
